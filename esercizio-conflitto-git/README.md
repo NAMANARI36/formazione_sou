@@ -8,4 +8,15 @@ Generare volontariamente un conflitto su git attraverso il comando di merge dell
 
 
 ## Soluzione
-Ho clonato la repository formazionesou sulla VM. Ho creato il file giovanni.txt sul branch main e ho aggiunto del testo alla prima riga, poi ho fatto git add e git commit, poi ho creato il branch "ConflittoMerge", mi ci sono spostato con il comando git switch "ConflittoMerga", e poi Ho modificiato il file txt con vim, cambiando la prima riga del file, poi ho fatto git add e git commit, successivamente sono tornato sul main e ho provato a fare il merge generando un conflitto. Il conflittop è dovuto al fatto che git non può automaticamente scegliere quale delle due riga sia quella voluta. Il conflitto è risolvibile in due modi o manualmente, andando a modificare il file txt a mano e seguendo i marker di conflitto scegliere quale codice tenere, altrimenti posso usare il coamdno git checkout --ours nome-file, git checkout --theirs nome-file
+Ho clonato la repository "formazionesou" sulla VM con il comando git clone https://github.com/username/repository-name
+Nel branch master ho creato un file.txt attraverso il comando touch nome-file
+Ho modificato il file.txt con il comando vim nome-file e successivamente ho scritto sulla prima riga del testo
+Ho eseguito il comando git add nome-file per passare dalla working area alla staging area di git
+Ho eseguito il comando git commit nome-file per creare la snapshot locale del file attuale
+Ho creato un branch con il comando git branch nome-branch
+Successivamente mi sono spostato dal branch master al branch appena creato con il comando git switch nome-branch
+Ho modificato il file.txt presente nel branch cambiando la prima riga di testo scritta in precedenza
+Ho eseguito git add e git commit per allineare il branch con il branch master
+Successivamente sono tornato sul master branch con il comando git switch nome-branch
+Ho eseguito il comando git merge nome-branch per provare a unire il branch master con il branch, generando il conflitto tra file
+Infine ho utilizzato il comando git checkout --ours nome-file per risolvere il conflitto e mantenere come file definitivo quello presente nel branch master
