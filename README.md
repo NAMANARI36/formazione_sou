@@ -1,3 +1,3 @@
 ## Guida alla lettura <br />
 Ogni cartella contiene la risoluzione di un esercizio con annessa traccia segnalata nel readme
-Link to the second non-unique section: [Link Text](https://github.com/NAMANARI36/formazione_sou/tree/f5f27a59af8d7529cbd201bf2b0258d9dd847469/Esercizio%20Conflitto%20Git).
+Link to the second non-unique section: [esercizio-conflitto-git](https://github.com/NAMANARI36/formazione_sou/tree/3d638f99dae05a65684cc3b6f830e7e6fe85d8a2/esercizio-conflitto-git)
