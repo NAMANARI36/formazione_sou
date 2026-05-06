@@ -15,7 +15,7 @@ while getopts ":sg:" opt; do
       exit 1
       ;;
     : )
-      echo "Errore: l'opzione -$OPTARG richiede un argomento"
+      echo "Errore: il flag -$OPTARG richiede un argomento"
       echo "Usage: $0 [-s] [-g nome_gruppo]"
       exit 1
       ;;
