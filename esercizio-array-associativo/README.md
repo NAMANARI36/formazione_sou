@@ -12,4 +12,4 @@ Il secondo "a mano" tramite un ciclo (o più cicli annidati) dentro uno script B
 ## Descrizione
 - Primo script con strumenti Unix classici
 - Secondo script con array dichiarativo e array associativo
-- Terzo script in C# sempre con array associativo
+- Terzo script in C# direttamente con hashset
