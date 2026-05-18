@@ -7,9 +7,9 @@ declare -A address
 address[Charles]="414 W. 10th Ave., Baltimore, MD 21236"
 address[John]="202 E. 3rd St., New York, NY 10009"
 address[Wilma]="1854 Vermont Ave, Los Angeles, CA 90023"
+# Linking keys with values
 
-
-echo "Charles's address is ${address[Charles]}."
+echo "Charles's address is ${address[Charles]}."  #selecting Charles values from the associative array
 # Charles's address is 414 W. 10th Ave., Baltimore, MD 21236.
 echo "Wilma's address is ${address[Wilma]}."
 # Wilma's address is 1854 Vermont Ave, Los Angeles, CA 90023.
