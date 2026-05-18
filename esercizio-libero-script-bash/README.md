@@ -6,4 +6,3 @@ Come esercizio ho scritto uno script che ritorna la lista di tutti gli utenti di
 - la flag -s è uno shortcut per filtrare gli utenti con gruppo sudo. <br />
 
 getopts è un'utility built-in che permette di gestire le flags di un comando in modo semplificato
-
