@@ -6,24 +6,24 @@ MINPARAMS=10
 
 echo
 
-echo "The name of this script is \"$0\"."
+echo "The name of this script is \"$0\"."   # $0 contains the name of the script
 # Adds ./ for current directory
 echo "The name of this script is \"`basename $0`\"."
 # Strips out path name info (see 'basename')
 
 echo
 
-if [ -n "$1" ]              # Tested variable is quoted.
+if [ -n "$1" ]              # $1 Contains the third arg
 then
- echo "Parameter #1 is $1"  # Need quotes to escape #
+ echo "Parameter #1 is $1"  # Need quotes to escape 
 fi 
 
-if [ -n "$2" ]
+if [ -n "$2" ]  # $2 Contains the third arg
 then
  echo "Parameter #2 is $2"
 fi 
 
-if [ -n "$3" ]
+if [ -n "$3" ]   # $3 Contains the third arg
 then
  echo "Parameter #3 is $3"
 fi 
@@ -39,7 +39,7 @@ fi
 echo "-----------------------------------"
 echo "All the command-line parameters are: "$*""
 
-if [ $# -lt "$MINPARAMS" ]
+if [ $# -lt "$MINPARAMS" ]   # $# Contains the number or args passed to the script
 then
   echo
   echo "This script needs at least $MINPARAMS command-line arguments!"
@@ -47,5 +47,5 @@ fi
 
 echo
 
-exit 0
+exit 0 # Positive exit code
 
