@@ -6,3 +6,4 @@ Le cartelle contengono traccia e risoluzione per ogni esercizio.
 - [esercizio-libero-script-bash](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-libero-script-bash)
 - [esercizio-array-associativo](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-array-associativo)
 - [commenti-scripts](https://github.com/NAMANARI36/formazione_sou/tree/main/commenti-scripts)
+- [esercizio-ping-pong](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ping-pong)
