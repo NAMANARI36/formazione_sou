@@ -14,4 +14,4 @@ Potete utilizzare quello che volete, soluzioni particolari con Bash, orchestrato
 - Ho copiato la chiave pubblica della prima VM sulla seconda VM con ssh-copy-id user@ip-seconda-vm
 - Ho copiato la chiave pubblica della seconda VM sulla prima VM con ssh-copy-id user@ip-prima-vm
 - Ho creato uno script bash sulla prima VM che avvia il container docker per 60 secondi, al termine dei 60 secondi chiude il container e si connette via ssh sulla seconda VM per eseguire lo stesso script bash presente nella seconda VM
-- A sua volta lo script bash presente nella seconda VM avvierà il container, aspettera 60 secondi e poi chiuderà il container e si connetterà via ssh alla prima VM per eseguire lo script precedente
+- A sua volta lo script bash presente nella seconda VM avvierà il container, aspettera 60 secondi e poi chiuderà il container e si connetterà via ssh alla prima VM per eseguire lo script precedente.
