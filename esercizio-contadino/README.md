@@ -28,3 +28,19 @@ Il *Contadino* ha la necessità di portare tutti gli elementi (*Cavolo*, *Lupo* 
 | 15 | Lupo, Capra | Contadino, Cavolo | NO |
 | 16 | Capra, Cavolo | Contadino, Lupo | NO |
 
+## Successione di stati per raggiungere la soluzione
+**1 → 6 → 2 → 9 → 4 → 8 → 5 → 10**
+
+## Metafora con l'archiettura
+| Elemento | Componente |
+|----------|------------|
+| Contadino | Container Podman |
+| Lupo | Container Podman |
+| Capra | Container Podman |
+| Cavolo | Container Podman |
+| Fiume | Rete |
+| Sponda A | Virtual Machine |
+| Sponda B | Virtual Machine |
+| Barca | SSH |
+| Regole di controllo | Orchestrazione dei container via script bash |
+| Condizioni per il constraint e per mangiare | Processo di controllo dei container sulle due VM |
