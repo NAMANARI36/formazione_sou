@@ -1,0 +1,55 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "bento/ubuntu-24.04"
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"
+        vb.cpus = 1
+    end
+
+    config.vm.define "ubuntu1" do |ubuntu1|
+        ubuntu1.vm.hostname = "ubuntu1"
+        ubuntu1.vm.network "private_network", ip: "192.168.1.2"
+
+        ubuntu1.vm.provision "shell", inline: <<-SHELL
+            apt update
+            apt install -y apache2
+            mkdir -p /var/www/status-responses
+
+            cat > /var/www/status-responses/index.html <<EOF
+<!DOCTYPE html>
+<html lang="it">
+<head><meta charset="UTF-8"><title>Hello World</title></head>
+<body>
+<h1>Hello World</h1>
+</body>
+</html>
+EOF
+
+            cat > /etc/apache2/sites-available/status-responses.conf <<EOF
+<VirtualHost *:80>
+    ServerName 192.168.1.2
+    DocumentRoot /var/www/status-responses
+
+    RedirectMatch 301 ^/redirect   192.168.1.2
+    RedirectMatch 404 ^/notfound
+    RedirectMatch 500 ^/error
+
+    <Directory /var/www/status-responses>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/status-responses-error.log
+    CustomLog \${APACHE_LOG_DIR}/status-responses-access.log combined
+</VirtualHost>
+EOF
+
+            a2ensite status-responses.conf
+            systemctl reload apache2
+
+            curl -I http://192.168.1.2/ | head -1
+            curl -I http://192.168.1.2/redirect | head -1
+            curl -I http://192.168.1.2/notfound | head -1
+            curl -I http://192.168.1.2/error | head -1
+        SHELL
+    end
+end
