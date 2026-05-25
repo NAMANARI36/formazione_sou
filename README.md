@@ -9,3 +9,4 @@ Le cartelle contengono traccia e risoluzione per ogni esercizio.
 - [esercizio-ping-pong](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ping-pong)
 - [sercizio-vagrant-devops-everywhere](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-vagrant-devops-everywhere)
 - [esercizio-risposte-http](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-risposte-http)
+- [esercizio-contadino](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-contadino)
