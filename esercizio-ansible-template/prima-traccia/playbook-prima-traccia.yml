@@ -1,0 +1,27 @@
+---
+# Play eseguito su tutti gli host che imposta il limite nofile per l'utente vagrant
+- name: Configura il limite di nofile per l'utente vagrant
+  hosts: all
+  become: true
+  
+  # Keyword vars che segnala ad Ansible la presenza di variabili
+  vars:
+    # Variabile
+    target_user: vagrant
+    target_env: "{{ deploy_env | default('dev') }}"
+    # Dizionario contenente i limiti a seconda dell'ambiente
+    file_limits:
+      dev: 1000
+      stage: 1000
+      prod: 10000
+      
+  # Lista dei Task da eseguire sugli host target
+  tasks:
+  # Primo Task
+    - name: Imposta il limite di nofile in limits.conf       # Nome del Task
+      ansible.builtin.blockinfile:        # Modulo dedicato a gestire sezioni dei file di configurazione
+        path: /etc/security/limits.conf     # Parametro path del modulo
+      
+        # lookup richiama la funzione Jinja che permette di recuperare dati da un risorsa esterna al playbook
+        block: "{{ lookup('ansible.builtin.template', 'limits.conf.j2') }}"       # parametro block del modulo
+        create: false    # Parametro create del modulo
