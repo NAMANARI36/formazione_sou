@@ -19,5 +19,5 @@
     - name: Aggiunge gli utenti in whitelist al file di configurazione access
       ansible.builtin.blockinfile:
         path: /etc/security/access.conf
-        block: "{{ lookup('template', 'template/whitelist.j2') }}"
+        block: "{{ lookup('template', 'templates/whitelist.j2') }}"
         insertbefore: "^- : ALL : ALL$"
