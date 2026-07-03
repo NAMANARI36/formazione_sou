@@ -17,7 +17,9 @@
   tasks:
   # Primo Task   
     - name: Aggiunge gli utenti in whitelist al file di configurazione access
-      ansible.builtin.blockinfile:
-        path: /etc/security/access.conf
+      ansible.builtin.blockinfile:             # Modulo dedicato a gestire sezioni dei file di configurazione
+        path: /etc/security/access.conf        # Parametro path del modulo
+
+        # lookup richiama la funzione Jinja che permette di recuperare dati da un risorsa esterna al playbook
         block: "{{ lookup('template', 'templates/whitelist.j2') }}"
-        insertbefore: “- : ALL : ALL”
+        insertbefore: “- : ALL : ALL”  # Parametro del modulo blockinfile
