@@ -4,7 +4,7 @@
   hosts: all
   become: true
   
-  # Keyword vars che segnala ad Ansible la presenza di variabili
+  # vars: keyword Ansible che definisce un dizionario chiave - valore
   vars:
     # Variabile
     target_user: vagrant
