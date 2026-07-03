@@ -12,3 +12,4 @@ Le cartelle contengono traccia e risoluzione per ogni esercizio.
 - [esercizio-contadino](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-contadino)
 - [esercizio-pdf-prova-semplice](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-pdf-prova-semplice)
 - [esercizio-ansible-liste-e-dizionari](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ansible-liste-e-dizionari)
+- [esercizio-ansible-vault] (https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ansible-vault)
