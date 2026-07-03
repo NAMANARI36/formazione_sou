@@ -5,7 +5,7 @@
   hosts: all
   become: true
 
-# vars: keyword Ansible che definisce un dizionario chiave - valore
+  # vars: keyword Ansible per definire variabili nello scope del play
   vars:
     # Variabile
     admin: alessio  
