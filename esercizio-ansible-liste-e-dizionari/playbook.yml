@@ -1,0 +1,26 @@
+---
+# Play eseguito su tutti gli hosts attivando la privilage escalation
+# Il metodo di escalation è determinato dalla keyword become_method che ha come valore di default "sudo"
+- name: Installer di utility
+  hosts: all
+  become: true
+
+# Keyword vars che segnala ad Ansible la presenza di variabili
+  vars:
+  # Lista di Dizionari chiamata packages
+    packages:
+      - name: nano              # Dizionario su index 0
+        state: present
+      - name: vim               # Dizionario su index 1
+        state: present
+      - name: tree              # Dizionario su index 2
+        state: present
+
+  # Lista dei Task da eseguire sugli host target
+  tasks:
+    # Prima Task
+    - name: Installa i pacchetti     # Nome del Task
+      ansible.builtin.package:       # Modulo dedicato alla gestione dei pacchetti
+        name: "{{ item.name }}"      # Parametro name del modulo
+        state: "{{ item.state }}"    # Parametro state del modulo
+      loop: "{{ packages }}"         # Keyword loop che segnala di ripete il Task per ogni elemento trovato dentro la lista packages
