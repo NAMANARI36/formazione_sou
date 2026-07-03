@@ -1,0 +1,40 @@
+---
+# Play eseguito su tutti gli host attivando la privilege escalation.
+# Il metodo di escalation è determinato dalla keyword become_method, che ha come valore di default "sudo".
+- name: Creazione utenti di base
+  hosts: all
+  become: true
+
+# Keyword vars che segnala ad Ansible la presenza di variabili
+  vars:
+    # Variabile
+    admin: alessio  
+    # Lista di dizionari chiamata users
+    users:
+      - name: ansible           # Dizionario su index 0    
+        group: configuration    
+        home: /home/ansible
+        state: present          
+      - name: "{{ admin }}"     # Dizionario su index 1
+        group: admins
+        home: /home/alessio
+        shell: /bin/bash
+        state: present
+  # Lista dei Task da eseguire sugli host target
+  tasks:
+  # Prima Task
+    - name: Crea gruppi per gli utenti   # Nome del Task
+      ansible.builtin.group:             # Modulo dedicato alla gestione dei gruppi
+        name: "{{ item.group }}"         # Parametro name del modulo
+        state: present                   # Parametro state del modulo
+      loop: "{{ users }}"                # Keyword loop che segnala di ripete il Task per ogni elemento trovato dentro la lista users
+  # Seconda Task
+    - name: Crea utenti
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        group: "{{ item.group }}"
+        create_home: true
+        home: "{{ item.home }}"
+        shell: "{{ item.shell | default(omit) }}"  # Nel caso in cui il parametro item.shell sia undefined, il filter default con valore omit rimuove del tutto il parametro shell dalla chiamata al modulo
+        state: "{{ item.state }}"
+      loop: "{{ users }}"
