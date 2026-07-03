@@ -13,4 +13,4 @@
     # Prima Task
     - name: Stampa i valori delle variabili caricate dal vault
       ansible.builtin.debug:
-        msg: "segreto: {{ vault_secret }}"   # Segreto: Eugenio ha l'ufficio come Dottor House
+        msg: "segreto: {{ vault_secret }}"
