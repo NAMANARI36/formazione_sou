@@ -1,1 +1,23 @@
-
+---
+# Play eseguito su tutti gli host che configura il file access.conf secondo una whitelist
+- name: Configura il file access.conf secondo una whitelist
+  hosts: all
+  become: true
+  
+  # vars: keyword Ansible che definisce un dizionario chiave - valore
+  vars:
+    # Lista degli users da mettere nella whitelist
+    users_list:
+      - alessio
+      - giggetto
+      - pippo
+      - paperino
+      
+  # Lista dei Task da eseguire sugli host target
+  tasks:
+  # Primo Task   
+    - name: Aggiunge gli utenti in whitelist al file di configurazione access
+      ansible.builtin.blockinfile:
+        path: /etc/security/access.conf
+        block: "{{ lookup('template', 'template/whitelist.j2') }}"
+        insertbefore: "^- : ALL : ALL$"
