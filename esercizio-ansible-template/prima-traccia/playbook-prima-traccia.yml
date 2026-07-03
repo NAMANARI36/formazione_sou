@@ -23,5 +23,5 @@
         path: /etc/security/limits.conf     # Parametro path del modulo
       
         # lookup richiama la funzione Jinja che permette di recuperare dati da un risorsa esterna al playbook
-        block: "{{ lookup('ansible.builtin.template', 'limits.conf.j2') }}"       # parametro block del modulo
+        block: "{{ lookup('ansible.builtin.template', 'templates/limits.conf.j2') }}"       # parametro block del modulo
         create: false    # Parametro create del modulo
