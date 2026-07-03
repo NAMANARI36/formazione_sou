@@ -4,7 +4,7 @@
   hosts: all
   become: true
   
-  # vars: keyword Ansible che definisce un dizionario chiave - valore
+  # vars: keyword Ansible per definire variabili nello scope del play
   vars:
     # Lista degli users da mettere nella whitelist
     users_list:
@@ -20,4 +20,4 @@
       ansible.builtin.blockinfile:
         path: /etc/security/access.conf
         block: "{{ lookup('template', 'templates/whitelist.j2') }}"
-        insertbefore: "^- : ALL : ALL$"
+        insertbefore: “- : ALL : ALL”
