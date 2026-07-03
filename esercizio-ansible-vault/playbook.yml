@@ -2,7 +2,7 @@
 # Play eseguito su tutti gli host che carica variabili da un vault file cifrato e ne stampa i valori
 - name: Stampa variabili dal vault
   hosts: all
-#  vars che segnala ad Ansible la presenza di variabili
+  
   # Keyword vars_files che segnala ad ansible la presenza di file esterni
   # Nel caso del vault, quando viene lanciato il file dovrà essere passata la chiave di cifratura del vault dato che il vault file viene decifrato a runtime
   vars_files:
@@ -12,5 +12,5 @@
   tasks:
     # Prima Task
     - name: Stampa i valori delle variabili caricate dal vault
-      ansible.builtin.debug:
-        msg: "segreto: {{ vault_secret }}"
+      ansible.builtin.debug:                # Modulo di debug
+        msg: "segreto: {{ vault_secret }}"  # Parametro del modulo per il printing
