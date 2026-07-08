@@ -14,3 +14,4 @@ Le cartelle contengono traccia e risoluzione per ogni esercizio.
 - [esercizio-ansible-liste-e-dizionari](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ansible-liste-e-dizionari)
 - [esercizio-ansible-vault](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ansible-vault)
 - [esercizio-ansible-template](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-ansible-template)
+- [esercizio-relativo-al-formato-qcow2](https://github.com/NAMANARI36/formazione_sou/tree/main/esercizio-relativo-al-formato-qcow2)
