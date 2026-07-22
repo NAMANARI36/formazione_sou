@@ -1,0 +1,20 @@
+# Un playbook è il file che descrive cosa Ansible deve fare e su quali host.
+# Collega i gruppi di host (segnalati dall'inventory) alla logica da applicare (task o ruoli), definendo l'ordine e le condizioni di esecuzione. 
+# Un tag è un'etichetta applicabile a un task, un blocco, un ruolo o un intero play.
+# Serve a selezionare a runtime quali task eseguire (--tags) o escludere (--skip-tags),
+# senza modificare il playbook.
+
+# Un block è un costrutto che raggruppa più task in un'unità logica
+# permettendo di applicare direttive comuni (when, become, tags, vars) all'intero gruppo anziché ripeterle su ogni task, e di gestirne il fallimento in modo strutturato.
+
+- name: Installazione e configurazione di MariaDB
+  hosts: db_servers
+  become: true
+  roles:
+    - mariadb_install
+
+- name: Popolamento dei dati di test sull'istanza di origine
+  hosts: db_source
+  become: true
+  roles:
+    - mariadb_seed

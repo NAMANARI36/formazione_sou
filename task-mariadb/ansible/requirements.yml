@@ -1,0 +1,8 @@
+# Una collection è l'unità di distribuzione con cui Ansible impacchetta e versiona
+# contenuto riutilizzabile: moduli, plugin, ruoli e playbook, raggruppati per ambito e identificati da un namespace
+
+# community.mysql contiene moduli per gestire database MySQL e MariaDB. 
+# dipendenze: richiede PyMySQL installato sul managed node target
+
+collections:
+  - name: community.mysql

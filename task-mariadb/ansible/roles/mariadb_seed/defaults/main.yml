@@ -1,0 +1,4 @@
+---
+mariadb_seed_customers_count: 500
+mariadb_seed_orders_per_customer: 4
+mariadb_seed_tmp_dir: /tmp/mariadb_seed

@@ -1,0 +1,24 @@
+# Questo file contiene variabili del gruppo speciale "all". 
+# Un gruppo è un insieme di host raggruppati sotto un nome comune.
+# I gruppi sono utili per organizzare gli host in base a caratteristiche condivise.
+# all è il gruppo padre che contiene tutti gli altri gruppi e host.
+# Qui vanno definite tutte le variabili condivise da tutti i nodi gestiti da Ansible.
+
+
+# Variabili per Ansible dove definiamo l'utente SSH di default che Ansible utilizzerà per connettersi agli host.
+ansible_user: vagrant
+# Path dell'interprete Python da usare sugli host gestiti da Ansible.
+ansible_python_interpreter: /usr/bin/python3
+
+mariadb_root_password: "{{ vault_mariadb_root_password }}"
+
+# Nome del servizio systemd, usato dall'handler di restart e dai ruoli che
+# devono fermare o avviare l'istanza.
+mariadb_service_name: mariadb
+
+mariadb_database_name: testdb
+mariadb_app_user: app_user
+mariadb_app_password: "{{ vault_mariadb_app_password }}"
+
+# Path del socket Unix, usato dai moduli per l'autenticazione locale come root.
+mariadb_socket_path: /var/run/mysqld/mysqld.sock

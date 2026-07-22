@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+
+# Config del demone MariaDB, che viene letta all'avvio del servizio. 
+[mysqld]
+bind-address = {{ mariadb_install_bind_address }}
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
